@@ -37,14 +37,16 @@
   ;; Below is the list of packages that will show up in your
   ;; Home profile, under ~/.guix-home/profile.
   (packages (append
-              (specifications->packages (list "git" "htop" "byobu" "tmux" "nss-certs" "alacritty" "rsync" "ripgrep" "w3m"
+              (specifications->packages (list "git" "htop" "byobu" "tmux" "nss-certs" "alacritty" "rsync" "ripgrep" "w3m" "fzf" "jq" "ghq"
+                                              "fd" "eza" "bat" "zoxide"
                                               "gcc-toolchain" "make"
                                               "iperf" "fio"
-                                              "syncthing" 
-                                              "dbus"
+                                              "syncthing"
                                               "font-hackgen-nerd" "font-nasu" "font-google-noto-serif-cjk" "font-google-noto-sans-cjk" "font-awesome" "font-google-noto-emoji"
-                                              "emacs-next" "emacs-guix" "sqlite" "emacs-vterm" "mu" "isync" "pinentry-tty" "pinentry-emacs" "graphviz"
-                                              "hyprland" "xdg-desktop-portal-hyprland" "waybar-experimental" "rofi-wayland" "mako" "wl-clipboard" "swayidle" "vlc"))
+                                              "emacs-next" "emacs-guix" "sqlite" "emacs-vterm" "graphviz"
+                                              "mu" "cyrus-sasl-xoauth2" "oauth2ms" "isync" "pinentry-tty" "pinentry-emacs"
+                                              "dbus" "hyprland" "xdg-desktop-portal-hyprland" "waybar-experimental" "rofi-wayland" "mako" "wl-clipboard" "swayidle"
+                                              "thunar" "pavucontrol" "vlc"))
               (list glibc-locales-ja)
               ))
   ;; Below is the list of Home services.  To search for available
@@ -52,6 +54,7 @@
   (services
    (list (service home-bash-service-type
                   (home-bash-configuration
+                   (guix-defaults? #f)
                    (environment-variables '(("GUIX_LOCPATH" . "$HOME/.guix-home/profile/lib/locale")
                                             ("SSL_CERT_DIR" . "$HOME/.guix-home/profile/etc/ssl/certs")
                                             ;;("VISUAL" . "emacsclient")
